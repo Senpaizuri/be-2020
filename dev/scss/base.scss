@@ -1,0 +1,15 @@
+@import 'vars/index';
+@import 'mixins/index';
+@import 'components/index';
+
+*,*:after,*:before{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    color: $color-black;
+    font-family: 'Spartan',sans-serif;
+    font-size: 16px;
+    line-height: 1.625;
+}

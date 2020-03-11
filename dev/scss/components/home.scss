@@ -1,0 +1,9 @@
+$component: 'home';
+
+.#{$component}{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}

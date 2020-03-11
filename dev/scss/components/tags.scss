@@ -1,0 +1,27 @@
+.new-deals:before{
+    content:"new";
+    position: absolute;
+    top: calc(100% + .5rem);
+    left: 50%;  
+    width: 100%;
+    padding: .25rem 0;
+    font-size: .5rem;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-blue;
+    transform: translateX(-50%);
+}
+
+.hot-deals:before{
+    content:"hot";
+    position: absolute;
+    top: calc(100% + .5rem);
+    left: 50%;  
+    width: 100%;
+    padding: .25rem 0;
+    font-size: .5rem;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-red;
+    transform: translateX(-50%);
+}
