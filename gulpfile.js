@@ -13,14 +13,14 @@ gulp.task('sass',()=>{
         .pipe(gulp.dest('./src/css/'))
 })
 
-gulp.task('minify',async()=>{
+gulp.task('minify',()=>{
     return gulp.src(['./src/css/base.css'])
         .pipe(concat('index.css'))
         .pipe(cssNano())
         .pipe(gulp.dest('./src/'))
 })
 
-gulp.task('build',async()=>{
+gulp.task('build',()=>{
     gulp.parallel(gulp.series('sass','minify'))
 })
 
