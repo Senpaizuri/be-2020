@@ -1,8 +1,8 @@
 <form action="/register" method="post">
 
     <fieldset>
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required>
+        <label for="displayName">Display name</label>
+        <input type="text" name="displayName" id="displayName" required>
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>
@@ -18,18 +18,25 @@
         <label for="lastName">Last name</label>
         <input type="text" name="lastName" id="lastName" required>
 
-        <label for="firstName">Date of Birth</label>
-        <input type="date" name="firstName" id="firstName" required>
-    
         <label for="gender">Gender</label>
         <select name="gender" id="gender">
             <option value="female">Female</option>
             <option value="male">Male</option>        
         </select>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob" id="dob" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="bio">Tell us a little something about yourself!</label>
+        <textarea name="bio" id="bio" cols="30" rows="10" placeholder="I've thought about getting 7 cats, but then..."></textarea>
+
     </fieldset>
     <fieldset>
-        <label for="color">What's your favorite color?</label>
-        <input type="color" name="color" id="color" required>
+        <label for="favoriteColor">What's your favorite color?</label>
+        <input type="color" name="favoriteColor" id="favoriteColor" required>
     </fieldset>
     <input type="submit" value="register">
 </form>

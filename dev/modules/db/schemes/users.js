@@ -3,9 +3,11 @@ const mongoose = require('mongoose')
 const schema = mongoose.Schema
 const objectId = schema.ObjectId
 
+const {hash} = require('../../encryption/index')
+
 const user = new schema ({
     objId: objectId,
-    username: {
+    displayName: {
         type:String,
         required: true,
         unique: true
@@ -51,7 +53,14 @@ user.path('firstName').set((str)=>{
     return str.capitalize()
 })
 
-const userModel = mongoose.model('user',user)
+user.pre('save',async function(next){
+    if(this.isModified){
+        this.password = await hash(this.password)
+    }
+})
+
+module.exports = mongoose.model('user',user)
+
 // const userInstance = new userModel()
 
 // userInstance.username = 'Thunder'
@@ -68,7 +77,4 @@ const userModel = mongoose.model('user',user)
 //     console.log(err)
 // })
 
-module.exports = {
-        users:userModel
-}
 
