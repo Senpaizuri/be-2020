@@ -1,6 +1,4 @@
 const validate = async (body)=>{
-    console.log('validating registration',body)
-
     let validObj = {
         valid: false,
         reason:[],
@@ -20,7 +18,6 @@ const validate = async (body)=>{
            validObj.reason.push({key,val,msg:`${key} is undefined or empty` })
         }
     }
-    console.log(body)
     return validObj
 }
 

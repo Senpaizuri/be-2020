@@ -2,9 +2,9 @@
 <%- include('../components/nav.ejs') %>
     <section>
         <h1>Your profile</h1>
-        <form action="/profile/<%= user._id.slice(0,6) %>/edit" method="post">          
+        <form action="/profile/<%= user._id %>/edit" method="post">          
             <fieldset>
-                <Legend>Personal Data (Unchangeable)</Legend>
+                <Legend>Personal Data</Legend>
                 <label for="firstName">First name</label>
                 <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>" required disabled>
         

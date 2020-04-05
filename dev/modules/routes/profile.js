@@ -11,9 +11,15 @@ route.get('/profile',(req,res)=>{
     }
 })
 
-route.get('/profile/:uid',(req,res)=>{
+route.get('/profile/:uid',async (req,res)=>{
     if(req.session.user){
-        res.render('pages/userprofile',{user:req.session.user})
+        const userData = await users.findOne({uid:req.params.uid}).then(doc => doc)
+        if(userData){
+            res.render('pages/userprofile',{user:userData})
+        }else{
+            res.redirect('/notfound')
+        }
+        
     }else{
         res.redirect('/login')
     }
@@ -48,7 +54,6 @@ route.post('/profile/:uid/edit',async(req,res)=>{
                     new: true,
                     runValidators: true
                 }).then(doc => doc).catch(err=>{
-                    console.log(err)
                     res.render('pages/editprofile',{
                         user:req.session.user,
                         err:{
@@ -58,16 +63,13 @@ route.post('/profile/:uid/edit',async(req,res)=>{
                     })
                 })
             if(newUserData){
-                console.log(newUserData)
 
                 req.session.user.email = tempData.email
                 req.session.user.displayName = tempData.displayName
                 req.session.user.favoriteColor = tempData.favoriteColor
                 req.session.user.password = tempData.password
                 req.session.user.hidePersonalData = tempData.hidePersonalData
-                
-                console.log(req.session.user)
-                
+                                
                 res.render('pages/editprofile',{
                     user:req.session.user,
                     success:{

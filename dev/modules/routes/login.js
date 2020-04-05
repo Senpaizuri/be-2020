@@ -5,7 +5,6 @@ const {compare} = require('../encryption/index')
 const {users} = require('../db/schemes')
 
 route.get('/login',(req,res)=>{
-    console.log(req.session)
     if(req.session.user){
         res.redirect('/profile')
     }else{
@@ -18,7 +17,6 @@ route.get('/login',(req,res)=>{
 route.post('/login',async (req,res)=>{
     const loginDetails = req.body
     const userData = await users.findOne({email:loginDetails.email.toLowerCase()}).then(doc=>doc)
-    // console.log(userData)
 
     if(userData){
         const isUserValid = await compare(loginDetails.password,userData.password)

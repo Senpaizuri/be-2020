@@ -4,6 +4,7 @@ const schema = mongoose.Schema
 const objectId = schema.ObjectId
 
 const {hash} = require('../../encryption/index')
+const generateUID = require('../../helpers/genuid')
 
 const user = new schema ({
     objId: objectId,
@@ -49,6 +50,10 @@ const user = new schema ({
         type: Boolean,
         required: true,
         default: true
+    },
+    uid:{
+        type: String,
+        require: true
     }
 })
 
@@ -63,6 +68,7 @@ user.path('firstName').set((str)=>{
 user.pre('save',async function(next){
     if(this.isModified){
         this.password = await hash(this.password)
+        this.uid = await generateUID()
     }
 })
 

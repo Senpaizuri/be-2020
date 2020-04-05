@@ -15,10 +15,8 @@ route.post('/register',async(req,res)=>{
     }else{
         if(validation.valid){
             let user = new users(req.body)
-            console.log()
             user.save()
                 .then(doc =>{
-                    console.log('Success!',doc)
                     req.session.user = doc
                     res.redirect('/profile')
                 })
