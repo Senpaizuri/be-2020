@@ -1,6 +1,5 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../components/nav.ejs') %>
-<%- JSON.stringify(user) %>
     <section>
         <h1>Your profile</h1>
         <form action="/profile/<%= user._id.slice(0,6) %>/edit" method="post">          
