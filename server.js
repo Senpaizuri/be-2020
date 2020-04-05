@@ -6,7 +6,7 @@ const session = require('express-session')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const app = express()
-const port = process.env.SERVER_PORT || 8080
+const port = process.env.PORT || 8080
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
