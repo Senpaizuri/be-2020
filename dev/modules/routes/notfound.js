@@ -4,7 +4,11 @@ const database = require('../db/database')
 const {compare} = require('../encryption/index')
 
 route.get('*',(req,res)=>{
-    res.render('pages/404')
+    if(req.session.user){
+        res.render('pages/404',{user:req.session.user})
+    }else{
+        res.render('pages/404')
+    }
 })
 
 module.exports = route

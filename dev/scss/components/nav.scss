@@ -21,6 +21,7 @@ $component: 'nav';
         margin-right: 2rem;
         text-transform: lowercase;
         letter-spacing: .3rem;
+        max-height: 3rem;
     }
     &__link{
         position: relative;

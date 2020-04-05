@@ -1,9 +1,11 @@
 
 <form action="/login" method="post">
-    <legend>Sign in with an existing account.</legend>
-    <label class="<%= typeof err !== 'undefined' && 'invalid'  %>" for="email">Email</label>
-    <input class="" type="text" name="email" id="email" required value="<%= typeof email !== 'undefined' ? email : '' %>">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="login">
+    <fieldset>
+        <legend>Sign in with an existing account.</legend>
+        <label class="<%= typeof err !== 'undefined' && 'invalid'  %>" for="email">Email</label>
+        <input class="" type="text" name="email" id="email" required value="<%= typeof email !== 'undefined' ? email : '' %>">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <input type="submit" value="login">
+    </fieldset>
 </form>

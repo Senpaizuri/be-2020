@@ -7,6 +7,8 @@
 - [MongoDB - CodeCamp](https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/)
 - [Express](https://expressjs.com/en/4x/api.html)
 - [Express Sessions](https://www.npmjs.com/package/express-session)
+- [Gulp](https://gulpjs.com/docs/en/api/concepts/)
+- [Multer, GridFS](https://bezkoder.com/node-js-upload-store-images-mongodb/)
 
 ### Insightful resources
 - [JWT "vs" Sessions](https://stackoverflow.com/questions/43452896/authentication-jwt-usage-vs-session)

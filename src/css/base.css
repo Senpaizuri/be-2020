@@ -19,7 +19,8 @@ body {
     position: relative;
     margin-right: 2rem;
     text-transform: lowercase;
-    letter-spacing: .3rem; }
+    letter-spacing: .3rem;
+    max-height: 3rem; }
   .nav__link {
     position: relative;
     margin-left: 1rem;
@@ -79,6 +80,19 @@ body {
   background-color: #ED4C67;
   transform: translateX(-50%); }
 
+.profile__intro {
+  background-color: #f1f1f1;
+  padding: .5rem 1rem;
+  display: inline;
+  padding-right: 0;
+  border-radius: 5px; }
+
+.profile__name {
+  padding: .5rem 1rem;
+  margin-left: .5rem;
+  border-radius: 5px;
+  color: #f1f1f1; }
+
 *, *:after, *:before {
   box-sizing: border-box;
   scroll-behavior: smooth; }
@@ -88,6 +102,15 @@ body {
   font-family: 'Spartan',sans-serif;
   font-size: 16px;
   line-height: 1.625; }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+#app {
+  max-width: 1920px;
+  margin: auto;
+  padding-top: 6.25rem; }
 
 .hello-darkness {
   color: black; }

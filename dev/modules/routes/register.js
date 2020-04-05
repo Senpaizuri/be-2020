@@ -1,7 +1,6 @@
 const express = require('express')
 const route = express.Router()
 const {users} = require('../db/schemes')
-const {generateUID} = require('../helpers/index')
 const validateRegister = require('../forms')
 
 
@@ -15,12 +14,11 @@ route.post('/register',async(req,res)=>{
         res.redirect('/profile')
     }else{
         if(validation.valid){
-            req.body.uid = `${req.body.displayName}-${generateUID()}`
             let user = new users(req.body)
+            console.log()
             user.save()
                 .then(doc =>{
                     console.log('Success!',doc)
-                    delete req.body.password
                     req.session.user = doc
                     res.redirect('/profile')
                 })

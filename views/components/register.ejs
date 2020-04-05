@@ -1,43 +1,48 @@
 
 <form action="/register" method="post">
-    <legend>Register a new account.</legend>
     <span>
         <%-
             typeof err !== 'undefined' ? err.msg : ''
         %>
     </span>
     <fieldset>
-        <label for="displayName">Display name</label>
+        <legend>Register a new account.</legend>
+        <label for="displayName">Display name*</label>
         <input type="text" name="displayName" id="displayName" required>
 
-        <label for="password">Password</label>
+        <label for="password">Password*</label>
         <input type="password" name="password" id="password" required>
 
-        <label for="email">Email</label>
+        <label for="email">Email*</label>
         <input type="email" name="email" id="email" required>
     </fieldset>
 
     <fieldset>
-        <label for="firstName">First name</label>
+        <legend>Who are you?</legend>
+        <label for="firstName">First name*</label>
         <input type="text" name="firstName" id="firstName" required>
 
         <label for="middleName">Middle name</label>
         <input type="text" name="middleName" id="middleName">
 
-        <label for="lastName">Last name</label>
+        <label for="lastName">Last name*</label>
         <input type="text" name="lastName" id="lastName" required>
 
-        <label for="gender">Gender</label>
+        <label for="gender">Gender*</label>
         <select name="gender" id="gender">
             <option value="female">Female</option>
             <option value="male">Male</option>        
         </select>
 
-        <label for="dob">Date of Birth</label>
+        <label for="dob">Date of Birth*</label>
         <input type="date" name="dob" id="dob" required>
-
+        
+        <label for="hidePersonalData">Hide this data from other users? (You can change this later)</label>
+        <input type="checkbox" name="hidePersonalData" id="hidePersonalData" checked="true">
     </fieldset>
     <fieldset>
+        <legend>What are you like?</legend>
+
         <label for="bio">Tell us a little something about yourself!</label>
         <textarea name="bio" id="bio" cols="30" rows="10" placeholder="I've thought about getting 7 cats, but then..."></textarea>
 

@@ -3,7 +3,7 @@ const route = express.Router()
 
 
 route.get('/logout',(req,res)=>{
-    delete req.session.user
+    req.session.destroy()
     res.redirect('/')
 })
 

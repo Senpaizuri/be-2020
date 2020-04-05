@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../components/nav.ejs') %>
+<%- JSON.stringify(user) %>
+    <section>
+        <h1>Your profile</h1>
+        <form action="/profile/<%= user._id.slice(0,6) %>/edit" method="post">          
+            <fieldset>
+                <Legend>Personal Data (Unchangeable)</Legend>
+                <label for="firstName">First name</label>
+                <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>" required disabled>
+        
+                <label for="middleName">Middle name</label>
+                <input type="text" name="middleName" id="middleName" value="<%= user.middleName %>" disabled>
+        
+                <label for="lastName">Last name</label>
+                <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>" required disabled>
+        
+                <label for="gender">Gender</label>
+                <input type="text" name="gender" id="gender" value="<%= user.gender %>" required disabled>
+        
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="dob" id="dob" value="<%= new Date(user.dob).toISOString().slice(0,10) %>" required disabled>       
+
+                <label for="hidePersonalData">Hide this data from other users?</label>
+                <input type="checkbox" name="hidePersonalData" id="hidePersonalData" <%- user.hidePersonalData ? 'checked="true""' : ''%>>
+            </fieldset>
+            <fieldset>
+                <legend>Account Data</legend>
+                <label for="displayName">Display name</label>
+                <input type="text" name="displayName" id="displayName" value="<%= user.displayName %>" required>
+        
+                <label for="newPassword">New Password</label>
+                <input type="newPassword" name="newPassword" id="newPassword">
+        
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="<%= user.email %>" required>
+            </fieldset>
+            <fieldset>
+                <legend>Update what you are like</legend>
+                <label for="bio">Tell us a little something about yourself!</label>
+                <textarea name="bio" id="bio" cols="30" rows="10" placeholder="I've thought about getting 7 cats, but then..."><%= user.bio %></textarea>
+        
+                <label for="favoriteColor">What's your favorite color? </label>
+                <input type="color" name="favoriteColor" id="favoriteColor" value="<%= user.favoriteColor %>" required>
+            </fieldset>
+
+            <label for="password">Old Password to confirm</label>
+            <input type="password" name="password" id="password" required>
+
+            <input type="submit" value="Update">
+        </form>
+    </section>
+
+<%- include('../partials/footer.ejs') %>

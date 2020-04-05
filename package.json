@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart":"gulp build && node server.js",
-    "start":"node server.js",
+    "prestart": "gulp build && node server.js",
+    "start": "node server.js",
     "dev": "concurrently --kill-others \"nodemon server.js\" \"gulp watch\""
   },
   "repository": {
@@ -28,6 +28,8 @@
     "express-session": "^1.17.0",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.4",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.0.3",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {

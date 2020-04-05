@@ -20,7 +20,7 @@ app.use(session({
 	saveUninitialized: true,
 	cookie:{
 		sameSite: true,
-		maxAge: 60000
+		maxAge: 60000 * 5
 	},
 	secret: process.env.SESSION_HASH || 'hushhush'
 }))

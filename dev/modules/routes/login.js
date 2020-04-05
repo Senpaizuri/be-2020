@@ -17,14 +17,13 @@ route.get('/login',(req,res)=>{
 
 route.post('/login',async (req,res)=>{
     const loginDetails = req.body
-    const emailData = await users.findOne({email:req.body.email}).then(doc=>doc)
-    // console.log(emailData)
+    const userData = await users.findOne({email:loginDetails.email.toLowerCase()}).then(doc=>doc)
+    // console.log(userData)
 
-    if(emailData){
-        const isUserValid = await compare(req.body.password,emailData.password)
+    if(userData){
+        const isUserValid = await compare(loginDetails.password,userData.password)
         if(isUserValid){
-            delete emailData.password
-            req.session.user = emailData
+            req.session.user = userData
             res.redirect('/profile')
         }else{
             res.render('pages/login',{

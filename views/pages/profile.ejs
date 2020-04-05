@@ -1,5 +1,10 @@
 <%- include('../partials/header.ejs') %>
-    <h1>Thunder Dating</h1>
-    <h2>Feel the spark</h2>
-    <h3>Hello <%= user.displayName %>!</h3>
+<%- include('../components/nav.ejs') %>
+    <section class="profile">
+        <h3 class="profile__intro">Hello <span style="background-color: <%= user.favoriteColor %>;" class="profile__name"><%= user.firstName %></span></h3>
+        <p>How's your day going?</p>
+
+        <a class="profile__link" href="/profile/<%= user._id.slice(0,6) %>/edit">Edit your profile</a>
+        <a class="profile__link" href="/profile/<%= user._id.slice(0,6) %>">This is what your profile looks like to others!</a>
+    </section>
 <%- include('../partials/footer.ejs') %>

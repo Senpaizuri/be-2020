@@ -4,14 +4,12 @@ const schema = mongoose.Schema
 const objectId = schema.ObjectId
 
 const {hash} = require('../../encryption/index')
-const {generateUID} = require('../../helpers/index')
 
 const user = new schema ({
     objId: objectId,
     displayName: {
         type:String,
         required: true,
-        unique: true
     },
     password: {
         type:String,
@@ -42,6 +40,15 @@ const user = new schema ({
     email: {
         type: String, 
         unique: true
+    },
+    gender:{
+        type: String,
+        required: true
+    },
+    hidePersonalData:{
+        type: Boolean,
+        required: true,
+        default: true
     }
 })
 
@@ -59,22 +66,6 @@ user.pre('save',async function(next){
     }
 })
 
+
 module.exports = mongoose.model('user',user)
-
-// const userInstance = new userModel()
-
-// userInstance.username = 'Thunder'
-// userInstance.password = 'spark'
-// userInstance.firstName = 's'
-// userInstance.middleName = ''
-// userInstance.lastName = 'Birb'
-// userInstance.favoriteColor = 'Black'
-// userInstance.dob = new Date()
-// userInstance.bio = 'x'
-// userInstance.email = 'b@x.nl'
-
-// userInstance.save((err)=>{
-//     console.log(err)
-// })
-
 
