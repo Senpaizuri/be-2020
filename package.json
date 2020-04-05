@@ -24,6 +24,7 @@
     "compression": "^1.7.4",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.4",
     "node-fetch": "^2.6.0"

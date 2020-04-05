@@ -4,11 +4,19 @@ const database = require('../db/database')
 
 
 route.get('/profile',(req,res)=>{
-    res.render('pages/profile',{})
+    if(req.session.user){
+        res.render('pages/profile',{user:req.session.user})
+    }else{
+        res.redirect('/login')
+    }
 })
 
-route.post('/profile',(req,res)=>{
-    res.render('pages/profile')
+route.get('/profile/:uid',(req,res)=>{
+    if(req.session.user){
+        res.render('pages/userprofile',{user:req.session.user})
+    }else{
+        res.redirect('/login')
+    }
 })
 
 module.exports = route

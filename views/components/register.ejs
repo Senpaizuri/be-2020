@@ -1,11 +1,20 @@
-<form action="/register" method="post">
 
+<form action="/register" method="post">
+    <legend>Register a new account.</legend>
+    <span>
+        <%-
+            typeof err !== 'undefined' ? err.msg : ''
+        %>
+    </span>
     <fieldset>
         <label for="displayName">Display name</label>
         <input type="text" name="displayName" id="displayName" required>
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
     </fieldset>
 
     <fieldset>
@@ -27,14 +36,11 @@
         <label for="dob">Date of Birth</label>
         <input type="date" name="dob" id="dob" required>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
-
+    </fieldset>
+    <fieldset>
         <label for="bio">Tell us a little something about yourself!</label>
         <textarea name="bio" id="bio" cols="30" rows="10" placeholder="I've thought about getting 7 cats, but then..."></textarea>
 
-    </fieldset>
-    <fieldset>
         <label for="favoriteColor">What's your favorite color?</label>
         <input type="color" name="favoriteColor" id="favoriteColor" required>
     </fieldset>

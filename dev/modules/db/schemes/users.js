@@ -4,6 +4,7 @@ const schema = mongoose.Schema
 const objectId = schema.ObjectId
 
 const {hash} = require('../../encryption/index')
+const {generateUID} = require('../../helpers/index')
 
 const user = new schema ({
     objId: objectId,
@@ -37,7 +38,6 @@ const user = new schema ({
     },
     bio: {
         type:String,
-        required: true
     },
     email: {
         type: String, 
