@@ -20,8 +20,8 @@ gulp.task('minify',()=>{
         .pipe(gulp.dest('./src/'))
 })
 
-gulp.task('build',()=>{
-    gulp.parallel(gulp.series('sass','minify'))
+gulp.task('build',async()=>{
+    await gulp.series('sass','minify')
 })
 
 gulp.task('watch',()=>{
