@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"nodemon server.js\" \"gulp watch\"",
-    "deploy": "gulp build && node server.js"
+    "prestart":"gulp build && node server.js",
+    "start":"node server.js",
+    "dev": "concurrently --kill-others \"nodemon server.js\" \"gulp watch\""
   },
   "repository": {
     "type": "git",
