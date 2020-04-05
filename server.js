@@ -29,10 +29,12 @@ app.use(session({
 const index = require('./dev/modules/routes/index')
 const login = require('./dev/modules/routes/login')
 const register = require('./dev/modules/routes/register')
+const logout = require('./dev/modules/routes/logout')
 const profile = require('./dev/modules/routes/profile')
 app.use('/',index)
 app.use('/',login)
 app.use('/',register)
+app.use('/',logout)
 app.use('/',profile)
 
 // saving grace
