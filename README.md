@@ -74,24 +74,24 @@ Every commit to the `release` branch will trigger an automatic deployment.
 # TODO
 
 ## MVP
-[x] Basic Login/register Flow
-[x] Basic sessions with JTW or SS Sessions
-[ ] Basic Styling
-[x] User Profiles
-[x] Editable Profiles
-[x] List other Users
-[x] View other Users
+* [x] Basic Login/register Flow
+* [x] Basic sessions with JTW or SS Sessions
+* [ ] Basic Styling
+* [x] User Profiles
+* [x] Editable Profiles
+* [x] List other Users
+* [x] View other Users
 
 ## BACKLOG
 
-[ ] Redesign App
-[ ] Client Side feedback for form validation
-[ ] Add "Online" functionality
-[ ] Add Chatting (RT?) with other users
-[ ] Add Matching with other users
-[ ] Add wall/posts to profiles
-[ ] Look into JTW for sessions instead of SS sessions
-[ ] Image uploads for profiles/posts
+* [ ] Redesign App
+* [ ] Client Side feedback for form validation
+* [ ] Add "Online" functionality
+* [ ] Add Chatting (RT?) with other users
+* [ ] Add Matching with other users
+* [ ] Add wall/posts to profiles
+* [ ] Look into JTW for sessions instead of SS sessions
+* [ ] Image uploads for profiles/posts
 
 ## Resources
 - [MongoDB - Node](http://mongodb.github.io/node-mongodb-native/3.4/quick-start/quick-start/)
