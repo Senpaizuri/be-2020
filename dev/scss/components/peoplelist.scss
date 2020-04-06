@@ -1,0 +1,25 @@
+$component: 'people-list';
+
+.#{$component}{
+    &__list{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    &__list-item{
+        margin: 1rem;
+    }
+    &__heading{
+        font-size: 1rem;
+    }
+    &__link{
+        height: 10rem;
+        width: 10rem;
+        border: 2px solid black;
+        display: block;
+        text-decoration: none;
+        color: $color-black;
+    }
+
+}

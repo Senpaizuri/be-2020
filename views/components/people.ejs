@@ -2,8 +2,8 @@
     <% if(people){ %>
     <ul class="people-list__list">
         <% people.forEach(person =>{ %>
-        <li class="people-list__list-item" style="border-color: <%= person.favoriteColor %>;">
-            <a class="people-list__link "href="/profile/<%= person.uid %>">
+        <li class="people-list__list-item">
+            <a class="people-list__link "href="/profile/<%= person.uid %>" style="border-color: <%= person.favoriteColor %>;">
                 <h2 class="people-list__heading"><%= person.hidePersonalData ? person.displayName : `${person.firstName}${' ' + person.middleName + ' '}${person.lastName}` %></h2>
                 <% if(!person.hidePersonalData){ %>
                     <p class="people-list__text"><%= `${ person.gender.charAt(0).toUpperCase() + person.gender.slice(1) }, ${Math.abs(new Date(Date.now() - new Date(person.dob)).getUTCFullYear() - 1970)}` %></p>

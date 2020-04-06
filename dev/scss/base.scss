@@ -12,6 +12,7 @@ body{
     font-family: 'Spartan',sans-serif;
     font-size: 16px;
     line-height: 1.625;
+    text-align: center;
 }
 
 html,body{
@@ -22,7 +23,16 @@ html,body{
 #app{
     max-width: $maxWidth;
     margin: auto;
-    padding-top: 6.25rem;
+}
+
+.flex{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &--half{
+        min-height: 50vh;
+    }
 }
 
 form,fieldset{
@@ -30,10 +40,15 @@ form,fieldset{
 }
 form{
     padding: 1rem 2rem;
-    background-color: $color-white;
+    box-shadow: 0 5px 15px 0px rgba($color-black,.15);
     max-width: 30rem;
     margin: 1rem auto;
     border-radius: 5px;
+}
+fieldset{
+    &:not(:first-child){
+        margin-top: 2rem;
+    }
 }
 legend{
     font-size: 1rem;
@@ -45,19 +60,26 @@ legend{
     width: 100%;
 }
 
-.hello-darkness{
-    color: black;
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='date'],
+select,
+label,
+textarea{
+    display: block;
+    width: 100%;
+    text-align: left;
+    &:not(:last-child){
+        margin-bottom: .5rem;
+    }
 }
 
 [class$="--button"]{
-
-}
-
-[class$="__heading"]{
-    text-align: center;
-    font-size: 2rem;
-}
-[class$="__subheading"]{
-    text-align: center;
-    font-size: 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid $color-black;
+    color: $color-black;
+    margin: 1rem auto;
+    display: inline-block;
+    text-decoration: none;
 }

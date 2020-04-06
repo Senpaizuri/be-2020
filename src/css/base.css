@@ -89,6 +89,29 @@ body {
   border-radius: 5px;
   color: #f1f1f1; }
 
+.people-list__list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.people-list__list-item {
+  margin: 1rem; }
+
+.people-list__heading {
+  font-size: 1rem; }
+
+.people-list__link {
+  height: 10rem;
+  width: 10rem;
+  border: 2px solid black;
+  display: block;
+  text-decoration: none;
+  color: #333; }
+
+.user {
+  margin-top: 6.25rem; }
+
 *, *:after, *:before {
   box-sizing: border-box;
   scroll-behavior: smooth; }
@@ -97,7 +120,8 @@ body {
   color: #333;
   font-family: 'Spartan',sans-serif;
   font-size: 16px;
-  line-height: 1.625; }
+  line-height: 1.625;
+  text-align: center; }
 
 html, body {
   margin: 0;
@@ -105,18 +129,28 @@ html, body {
 
 #app {
   max-width: 1920px;
-  margin: auto;
-  padding-top: 6.25rem; }
+  margin: auto; }
+
+.flex {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .flex--half {
+    min-height: 50vh; }
 
 form, fieldset {
   border: none; }
 
 form {
   padding: 1rem 2rem;
-  background-color: #f1f1f1;
+  box-shadow: 0 5px 15px 0px rgba(51, 51, 51, 0.15);
   max-width: 30rem;
   margin: 1rem auto;
   border-radius: 5px; }
+
+fieldset:not(:first-child) {
+  margin-top: 2rem; }
 
 legend {
   font-size: 1rem;
@@ -127,13 +161,29 @@ legend {
   display: block;
   width: 100%; }
 
-.hello-darkness {
-  color: black; }
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='date'],
+select,
+label,
+textarea {
+  display: block;
+  width: 100%;
+  text-align: left; }
+  input[type='text']:not(:last-child),
+  input[type='password']:not(:last-child),
+  input[type='email']:not(:last-child),
+  input[type='date']:not(:last-child),
+  select:not(:last-child),
+  label:not(:last-child),
+  textarea:not(:last-child) {
+    margin-bottom: .5rem; }
 
-[class$="__heading"] {
-  text-align: center;
-  font-size: 2rem; }
-
-[class$="__subheading"] {
-  text-align: center;
-  font-size: 1.5rem; }
+[class$="--button"] {
+  padding: 1rem 1.25rem;
+  border: 1px solid #333;
+  color: #333;
+  margin: 1rem auto;
+  display: inline-block;
+  text-decoration: none; }
