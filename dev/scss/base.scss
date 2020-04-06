@@ -25,6 +25,39 @@ html,body{
     padding-top: 6.25rem;
 }
 
+form,fieldset{
+    border: none;
+}
+form{
+    padding: 1rem 2rem;
+    background-color: $color-white;
+    max-width: 30rem;
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+legend{
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    position: relative;
+    padding-bottom: 1rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
 .hello-darkness{
     color: black;
+}
+
+[class$="--button"]{
+
+}
+
+[class$="__heading"]{
+    text-align: center;
+    font-size: 2rem;
+}
+[class$="__subheading"]{
+    text-align: center;
+    font-size: 1.5rem;
 }

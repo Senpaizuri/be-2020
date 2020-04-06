@@ -1,9 +1,10 @@
 $component: 'home';
 
 .#{$component}{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 100vh;
-    text-align: center;
+    &__subheading{
+        
+    }
+    &__text{
+        text-align: center;
+    }
 }

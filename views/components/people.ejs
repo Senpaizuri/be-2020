@@ -1,5 +1,18 @@
-<section class="people">
-    <ul class="people__list">
-        <li class="people__list-item"></li>
+<section class="people-list">
+    <% if(people){ %>
+    <ul class="people-list__list">
+        <% people.forEach(person =>{ %>
+        <li class="people-list__list-item" style="border-color: <%= person.favoriteColor %>;">
+            <a class="people-list__link "href="/profile/<%= person.uid %>">
+                <h2 class="people-list__heading"><%= person.hidePersonalData ? person.displayName : `${person.firstName}${' ' + person.middleName + ' '}${person.lastName}` %></h2>
+                <% if(!person.hidePersonalData){ %>
+                    <p class="people-list__text"><%= `${ person.gender.charAt(0).toUpperCase() + person.gender.slice(1) }, ${Math.abs(new Date(Date.now() - new Date(person.dob)).getUTCFullYear() - 1970)}` %></p>
+                <% } %>
+            </a>
+        </li>
+        <% }) %>
     </ul>
+    <% }else{ %>
+    <h2 class="people-list__err">We couldn't find anyone! try again later</h2>
+    <% } %>
 </section>

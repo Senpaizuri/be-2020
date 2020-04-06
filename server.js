@@ -31,11 +31,13 @@ const login = require('./dev/modules/routes/login')
 const register = require('./dev/modules/routes/register')
 const logout = require('./dev/modules/routes/logout')
 const profile = require('./dev/modules/routes/profile')
+const people = require('./dev/modules/routes/people')
 app.use('/',index)
 app.use('/',login)
 app.use('/',register)
 app.use('/',logout)
 app.use('/',profile)
+app.use('/',people)
 
 // saving grace
 const notFound = require('./dev/modules/routes/notfound')

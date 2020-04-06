@@ -3,9 +3,21 @@ const route = express.Router()
 const {users} = require('../db/schemes')
 const {compare,hash} = require('../encryption/index')
 
-route.get('/profile',(req,res)=>{
+route.get('/profile',async (req,res)=>{
     if(req.session.user){
-        res.render('pages/profile',{user:req.session.user})
+        const allUsers = await users.find({})
+        if(allUsers){
+            allUsers.splice(allUsers.map((e)=> e.uid).indexOf(req.session.user.uid),1)
+            res.render('pages/profile',{
+                user:req.session.user,
+                people: allUsers
+            })
+        }else{
+            res.render('pages/profile',{
+                user:req.session.user,
+                people: false
+            })
+        }
     }else{
         res.redirect('/login')
     }
