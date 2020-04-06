@@ -11,9 +11,10 @@ This website is built PE first, so no JS was hurt in the client whilst setting u
 
 * [Install](#install)
     * [Additional notes](#additional-notes)
-* [Tech stack](#tech-stack)
 * [Deployment](#deployment)
+* [Tech stack](#tech-stack)
 * [Feature](#feature)
+* [Scheme](#scheme)
 * [TLDR;](#tldr)
 * [TODO](#todo)
     * [MVP](#mvp)
@@ -44,6 +45,11 @@ The `.env` file should contain the following
     PORT = the port to run on locally
 ```
 
+# Deployment
+
+The current [prototype](https://be-2020.herokuapp.com/) is being deployed on [Heroku](https://www.heroku.com/).
+Every commit to the `release` branch will trigger an automatic deployment.
+
 # Tech stack
 
 The main npm package drivers of this project:
@@ -68,11 +74,6 @@ The main npm package drivers of this project:
 
 </details>
 
-# Deployment
-
-The current [prototype](https://be-2020.herokuapp.com/) is being deployed on [Heroku](https://www.heroku.com/).
-Every commit to the `release` branch will trigger an automatic deployment.
-
 # Feature
 
 I want people to be able to login without a hitch, and be able to change their profile info. Apart from that I'd like to create a wall where the users can post messages so that they can make themselves as interesting as they want you to think. You'll also be able to match with others based on simple preferences and chat with them.
@@ -80,6 +81,82 @@ I want people to be able to login without a hitch, and be able to change their p
 **notes**
 
 * Some people won't want their data given out for free to other strangers on the web.
+
+# Scheme
+
+## User
+
+<details>
+<summary> 
+    User Schematic for mongoDB 
+</summary>
+
+```js
+{
+    objId: objectId,
+    displayName: {
+        type:String,
+        required: true,
+    },
+    password: {
+        type:String,
+        required: true
+    },
+    firstName: {
+        type:String,
+        required: true
+    },
+    middleName: {
+        type:String
+    },
+    lastName: {
+        type:String,
+        required: true
+    },
+    favoriteColor: {
+        type:String,
+        required: true
+    },
+    dob: {
+        type: Date,
+        required: true
+    },
+    bio: {
+        type:String,
+    },
+    email: {
+        type: String, 
+        unique: true
+    },
+    gender:{
+        type: String,
+        required: true
+    },
+    hidePersonalData:{
+        type: Boolean,
+        required: true,
+        default: true
+    },
+    uid:{
+        type: String,
+        require: true
+    }
+}
+```
+
+</details>
+
+## Posts
+
+**posts** Schematic for mongoDB
+
+*WIP*
+
+## Chat
+
+**chat** Schematic for mongoDB
+
+*WIP*
 
 # TLDR;
 With [this app](https://be-2020.herokuapp.com/) people can: 
