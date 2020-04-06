@@ -13,6 +13,8 @@ This website is built PE first, so no JS was hurt in the client whilst setting u
     * [Additional notes](#additional-notes)
 * [Tech stack](#tech-stack)
 * [Deployment](#deployment)
+* [Feature](#feature)
+* [TLDR;](#tldr)
 * [TODO](#todo)
     * [MVP](#mvp)
     * [BACKLOG](#backlog)
@@ -33,9 +35,9 @@ This website is built PE first, so no JS was hurt in the client whilst setting u
 
 ## Additional notes
 
-- For this project to run smoothly make sure you have a working and running [MongoDB Atlas cluster](https://www.mongodb.com/cloud).
+For this project to run smoothly make sure you have a working and running [MongoDB Atlas cluster](https://www.mongodb.com/cloud).
 
-- The `.env` file should contain the following
+The `.env` file should contain the following
 ```env
     MNG_URI = mongo server uri
     SESSION_HASH = a unique hash for signing server side sessions
@@ -71,12 +73,34 @@ The main npm package drivers of this project:
 The current [prototype](https://be-2020.herokuapp.com/) is being deployed on [Heroku](https://www.heroku.com/).
 Every commit to the `release` branch will trigger an automatic deployment.
 
+# Feature
+
+I want people to be able to login without a hitch, and be able to change their profile info. Apart from that I'd like to create a wall where the users can post messages so that they can make themselves as interesting as they want you to think. You'll also be able to match with others based on simple preferences and chat with them.
+
+**notes**
+
+* Some people won't want their data given out for free to other strangers on the web.
+
+# TLDR;
+With [this app](https://be-2020.herokuapp.com/) people can: 
+
+1. User visits the website and creates a new account (`/register`)
+2. The user proceeds to login (`/login`)
+3. The user can then see other profiles (`/profile/:uid`) or change it's own (`/profile/:uid/edit`) 
+
+*todo*
+
+4. Users can add posts to their own wall
+5. Users can connect through basic preferences
+6. Users can chat with each other once they match
+
 # TODO
 
 ## MVP
+
 * [x] Basic Login/register Flow
 * [x] Basic sessions with JTW or SS Sessions
-* [ ] Basic Styling
+* [x] Basic Styling
 * [x] User Profiles
 * [x] Editable Profiles
 * [x] List other Users
@@ -85,15 +109,17 @@ Every commit to the `release` branch will trigger an automatic deployment.
 ## BACKLOG
 
 * [ ] Redesign App
-* [ ] Client Side feedback for form validation
-* [ ] Add "Online" functionality
-* [ ] Add Chatting (RT?) with other users
-* [ ] Add Matching with other users
+* [ ] Better Server Side Feedback form validation
 * [ ] Add wall/posts to profiles
-* [ ] Look into JTW for sessions instead of SS sessions
-* [ ] Image uploads for profiles/posts
+* [ ] Client Side feedback form validation
+* [ ] Add "Online" functionality
+* [ ] Add Matching with other users
+* [ ] Add Chatting (RT?) with other users
+* [ ] Look into JTW for sessions instead of SS sessions?
+* [ ] Hybrid Filter/Login?
+* [ ] Image uploads for profiles/posts?
 
-## Resources
+# Resources
 - [MongoDB - Node](http://mongodb.github.io/node-mongodb-native/3.4/quick-start/quick-start/)
 - [MongoDB - CodeCamp](https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/)
 - [Express](https://expressjs.com/en/4x/api.html)
@@ -108,6 +134,7 @@ Every commit to the `release` branch will trigger an automatic deployment.
 - [Generate UID](https://stackoverflow.com/questions/18524125/req-query-and-req-param-in-expressjs)
 
 # LICENSE
+
 MIT License
 
 Copyright (c) 2020 Maikel Sleebos
