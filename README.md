@@ -162,7 +162,7 @@ I want people to be able to login without a hitch, and be able to change their p
 # Topics (A2)
 - [x] Deploy your node app  and .env variables
 
-The app has been deployed on [heroku]('https://be-2020.herokuapp.com/') and makes use of the `dot-env` package to handle keys locally.
+The app has been deployed on [heroku](https://be-2020.herokuapp.com/) and makes use of the `dot-env` package to handle keys locally.
 - [x] Compress assets that get send to the client
 
 The app makes use of `compression`. A npm package that handles gzip'ing request that come from the node server.
