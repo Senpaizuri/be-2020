@@ -161,15 +161,21 @@ I want people to be able to login without a hitch, and be able to change their p
 
 # Topics (A2)
 - [x] Deploy your node app  and .env variables
+
 The app has been deployed on [`heroku`]('https://be-2020.herokuapp.com/') and makes use of the `dot-env` package to handle keys locally.
 - [x] Compress assets that get send to the client
+
 The app makes use of `compression`. A npm package that handles gzip'ing request that come from the node server.
 - [x] Hash the passwords you store in the database
+
 The passwords have been hashed and salted by `bcrypt`. The database only has encrypted passwords.
 - [x] Split up route logic in modules 
+
 All code has been split up into modules. Be it for routes in `/dev/modules/routes` or other stuff like encryption (`/dev/modules/encryption`)  and db (`/dev/modules/db`) functions. 
 - [ ] Handle exceptions properly
+
 Form checking and error handling has been setup but hasn't had a thorough implementation.
+
 # TLDR;
 With [this app](https://be-2020.herokuapp.com/) people can: 
 
