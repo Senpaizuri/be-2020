@@ -1,6 +1,8 @@
+const commonPasses = require('../encryption/commonPass')
+console.log(commonPasses)
 const validate = async (body)=>{
     let validObj = {
-        valid: false,
+        valid: true,
         reason:[],
         body
     }
@@ -8,14 +10,19 @@ const validate = async (body)=>{
         if(key == 'hidePersonalData'){
             val == 'on' ? body[key] = true : body[key] = false    
         }
+        if(key == 'password'){
+            console.log(val)
+            if(commonPasses.data.find((commonPass)=>{return commonPass == val })){
+                validObj.reason.push({key,val,msg:`${key} is a common password` })
+                validObj.valid = false
+            }
+        }
         if(key == 'email'){
             val = val.toLowerCase()
             console.log(val)
         }
-        if(val !== ''){
-            validObj.valid = true
-        }else{
-           validObj.reason.push({key,val,msg:`${key} is undefined or empty` })
+        if(val == ''){
+            validObj.reason.push({key,val,msg:`${key} is undefined or empty` })
         }
     }
     return validObj

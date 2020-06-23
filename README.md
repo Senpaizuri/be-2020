@@ -162,16 +162,31 @@ I want people to be able to login without a hitch, and be able to change their p
 # Topics (A2)
 - [x] Deploy your node app  and .env variables
 
-The app has been deployed on [heroku](https://be-2020.herokuapp.com/) and makes use of the `dot-env` package to handle keys locally.
+The app has been deployed on [heroku](https://be-2020.herokuapp.com/) and makes use of the `dot-env` package to handle keys locally. 
+
 - [x] Compress assets that get send to the client
 
 The app makes use of `compression`. A npm package that handles gzip'ing request that come from the node server.
 - [x] Hash the passwords you store in the database
 
 The passwords have been hashed and salted by `bcrypt`. The database only has encrypted passwords.
+
+<details>
+<summary>Research</summary>
+
+Keeping your account safe and secure is of course a big deal. Now that hackers get relatively good tools for less compared to the olden days it's in a developers best interest to keep user accounts safe. Many hackers/breaches have brought to light that some hashing methods and mechanism aren't up to par to todays standard.
+
+
+References and _"Light"_ reading concerning the subject:
+
+- [Salted Password Hashing Doing it Right](https://www.codeproject.com/Articles/704865/Salted-Password-Hashing-Doing-it-Right)
+- [Common Credentials (Raw File)](https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt)
+</details>
+
 - [x] Split up route logic in modules 
 
 All code has been split up into modules. Be it for routes in `/dev/modules/routes` or other stuff like encryption (`/dev/modules/encryption`)  and db (`/dev/modules/db`) functions. 
+
 - [ ] Handle exceptions properly
 
 Form checking and error handling has been setup but hasn't had a thorough implementation.
@@ -227,6 +242,7 @@ With [this app](https://be-2020.herokuapp.com/) people can:
 - [Authentication with JWT](https://blog.usejournal.com/sessionless-authentication-withe-jwts-with-node-express-passport-js-69b059e4b22c)
 - [Pagination](https://codeforgeek.com/server-side-pagination-using-node-and-mongo/)
 - [Generate UID](https://stackoverflow.com/questions/18524125/req-query-and-req-param-in-expressjs)
+- [Salted Password Hashing Doing it Right](https://www.codeproject.com/Articles/704865/Salted-Password-Hashing-Doing-it-Right)
 
 # LICENSE
 

@@ -10,6 +10,7 @@ route.get('/register',(req,res)=>{
 
 route.post('/register',async(req,res)=>{
     const validation = await validateRegister(req.body)
+    console.log(validation)
     if(req.session.user){
         res.redirect('/profile')
     }else{
