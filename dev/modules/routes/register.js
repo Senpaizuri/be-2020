@@ -31,7 +31,9 @@ route.post('/register',async(req,res)=>{
                 })
         }else{
             res.render('pages/register',{
-                validation
+                err:{
+                    msg: validation
+                }
             })
         }
     }

@@ -160,14 +160,31 @@ I want people to be able to login without a hitch, and be able to change their p
 *WIP*
 
 # Topics (A2)
-- [x] Deploy your node app  and .env variables
+## Deploy your node app  and .env variables
 
 The app has been deployed on [heroku](https://be-2020.herokuapp.com/) and makes use of the `dot-env` package to handle keys locally. 
 
-- [x] Compress assets that get send to the client
+## Compress assets that get send to the client
 
 The app makes use of `compression`. A npm package that handles gzip'ing request that come from the node server.
-- [x] Hash the passwords you store in the database
+
+<details>
+<summary>Research</summary>
+
+To reduce loading times and make your website less data hungry it's your best interest to compress the files sent to the end user.
+There are currently 2 main methods compressing assets, `gzip` and `brotli`.
+
+`brotli` would be the "better" choice if you're going for the most aggressive compression. The files will on average be bit smaller. However since it's not as well support as `gzip` I opted for that instead.
+
+![Brotli](docs/brotli.png)
+![Gzip](docs/gzip.png)
+
+[Brotli benchmarks](https://www.opencpu.org/posts/brotli-benchmarks/)
+[Reduce network payloads using text compression](https://web.dev/reduce-network-payloads-using-text-compression/)
+[Compression](https://github.com/expressjs/compression)
+</details>
+
+## Hash the passwords you store in the database
 
 The passwords have been hashed and salted by `bcrypt`. The database only has encrypted passwords.
 
@@ -176,18 +193,50 @@ The passwords have been hashed and salted by `bcrypt`. The database only has enc
 
 Keeping your account safe and secure is of course a big deal. Now that hackers get relatively good tools for less compared to the olden days it's in a developers best interest to keep user accounts safe. Many hackers/breaches have brought to light that some hashing methods and mechanism aren't up to par to todays standard.
 
-
-References and _"Light"_ reading concerning the subject:
+I thought about digging into hashing and salting basic passwords myself but decided against it since doing it myself would mean I'd need a deep understanding of how to encrypt with algorithms. I did try a Caesar Cypher but that Idea went down the drain as I read `Salted Password Hashing Doing It Right`. Instead I found a simpler way to "encrypt" user passwords aside from also using `bcrypt`. Before a user registers I run the string along an array of the most common credentials in recent years. This means that at the very least the password itself is inherently more secure. Another way to prevent things like a brute force attack is to limit the amount of login attempt from an IP address.
+ 
+Recources and references concerning the subject:
 
 - [Salted Password Hashing Doing it Right](https://www.codeproject.com/Articles/704865/Salted-Password-Hashing-Doing-it-Right)
 - [Common Credentials (Raw File)](https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt)
 </details>
 
-- [x] Split up route logic in modules 
+## Split up route logic in modules 
 
-All code has been split up into modules. Be it for routes in `/dev/modules/routes` or other stuff like encryption (`/dev/modules/encryption`)  and db (`/dev/modules/db`) functions. 
+All code has been split up into modules. Be it for routes in `/dev/modules/routes` or other stuff like encryption (`/dev/modules/encryption`) and db (`/dev/modules/db`) functions.
 
-- [ ] Handle exceptions properly
+<details>
+<summary>Research</summary>
+
+Routing in a webapp is very neat but also very necessary. Previously my routing for backend applications was always a mess.
+My `server.js` would be filled to the brim with route logic and how to handle templates. This would mean my server would be messy read and a total pain in the ass to work with. That's why I decided to not only divvy up the functionalities in modules but also write middleware for routes. This allows me to keep my `server.js` clean and easy to read and keeps all routes neatly bundled within their own route file.
+
+```js
+    // Old Situation, Single Route
+    // Server.js
+    app.get('/',(req,res)=>{
+        if(req.session.user){
+            res.redirect('/profile')
+        }else{
+            res.render('pages/home',{})
+        }
+    })
+```
+
+```js
+    // New Situation, Single route
+    // Server.js
+    const index = require('./dev/modules/routes/index')
+    app.use('/',index)
+```
+
+As you can see here, more complicated routes with more and more logic would make for a massive wall of code in the main `server.js` file. Now that I've split up the code in little modules it allows me to import them wherever I wish. With this in mind I also split up other logic in little modular bites so that they may be imported and used elsewhere. This keeps the code cleaner and easier to work with.
+
+Recources and references concerning the subject:
+- [Express Routing](https://expressjs.com/en/guide/routing.html)
+</details>
+
+## Handle exceptions properly
 
 Form checking and error handling has been setup but hasn't had a thorough implementation.
 
@@ -243,6 +292,12 @@ With [this app](https://be-2020.herokuapp.com/) people can:
 - [Pagination](https://codeforgeek.com/server-side-pagination-using-node-and-mongo/)
 - [Generate UID](https://stackoverflow.com/questions/18524125/req-query-and-req-param-in-expressjs)
 - [Salted Password Hashing Doing it Right](https://www.codeproject.com/Articles/704865/Salted-Password-Hashing-Doing-it-Right)
+- [Common Credentials (Raw File)](https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt)
+- [Reduce network payloads using text compression](https://web.dev/reduce-network-payloads-using-text-compression/)
+- [Express Routing](https://expressjs.com/en/guide/routing.html)
+- [Brotli benchmarks](https://www.opencpu.org/posts/brotli-benchmarks/)
+- [Reduce network payloads using text compression](https://web.dev/reduce-network-payloads-using-text-compression/)
+- [Compression](https://github.com/expressjs/compression)
 
 # LICENSE
 
