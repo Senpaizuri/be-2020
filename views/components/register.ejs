@@ -2,7 +2,7 @@
 <form class="register-form" action="/register" method="post">
     <span>
         <%-
-            typeof err !== 'undefined' ? err.msg : ''
+            typeof err !== 'undefined' ? typeof err.msg  == 'String' ? err.msg : err.msg.reason[0].msg : ''
         %>
     </span>
     <fieldset class="register-form__fieldset">

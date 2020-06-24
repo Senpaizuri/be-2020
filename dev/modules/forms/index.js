@@ -11,7 +11,7 @@ const validate = async (body)=>{
         }
         if(key == 'password'){
             if(commonPasses.data.find((commonPass)=>{return commonPass == val })){
-                validObj.reason.push({key,val,msg:`${key} is a common password` })
+                validObj.reason.push({key,val,msg:`<strong>${val} is a common password try something better ;)</strong>` })
                 validObj.valid = false
             }
         }
@@ -19,7 +19,7 @@ const validate = async (body)=>{
             val = val.toLowerCase()
         }
         if(val == ''){
-            validObj.reason.push({key,val,msg:`${key} is undefined or empty` })
+            validObj.reason.push({key,val,msg:`<span>${key} is undefined or empty</span>` })
         }
     }
     return validObj
