@@ -28,7 +28,7 @@
     "express-session": "^1.17.0",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.4",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
